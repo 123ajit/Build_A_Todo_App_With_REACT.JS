@@ -1,10 +1,26 @@
 import "./styles.css";
+import React, { useState } from "react";
+import Form from "./components/Form";
+import TodoList from "./components/TodoList";
 
-export default function App() {
+function App() {
+  const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
+
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <header>
+        <h1>Ed's Todo List</h1>
+        <Form
+          inputText={inputText}
+          todos={todos}
+          setTodos={setTodos}
+          setInputText={setInputText}
+        />
+        <TodoList />
+      </header>
     </div>
   );
 }
+
+export default App;
